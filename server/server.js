@@ -18,7 +18,13 @@ const PORT = process.env.PORT || 3001;
 app.use('*.css', (req, res, next) => {
   res.type('text/css');
   next();
+}); 
+
+app.use('*.js', (req, res, next) => {
+  res.type('application/javascript');
+  next();
 });
+
 
 const startApolloServer = async () => {
   await server.start();
