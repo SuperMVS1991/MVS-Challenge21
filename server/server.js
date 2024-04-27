@@ -15,6 +15,10 @@ const server = new ApolloServer({
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use('*.css', (req, res, next) => {
+  res.type('text/css');
+  next();
+});
 
 const startApolloServer = async () => {
   await server.start();
